@@ -18,13 +18,18 @@ DisjointSet::DisjointSet( int height, int width ) : height_( height ), width_( w
 
 void DisjointSet::print( std::ostream& os ) {
   using namespace std;
-  /*
   for( int h = 0; h < height_; ++h ) {
     for( int w = 0; w < width_; ++w ) {
-      
+      cout << " ---";
     }
+    cout << endl << "|";
+    for( int w = 0; w < width_; ++w ) {
+      cout << "   |";
+    }
+    cout << endl;
   }
-  */
-  for( auto it : map_ )
-    cout << it.second << endl;
+  for( int w = 0; w < width_; ++w ) {
+    cout << " ---";
+  }
+  cout << endl;
 }
