@@ -1,34 +1,20 @@
 #ifndef _DISJOINTSET_
 #define _DISJOINTSET_
 
-#include <iostream>
 #include <vector>
+#include <stdexcept>
 
 class DisjointSet {
 public:
-  enum {
-    NORTH = 0,
-    WEST,
-  };
-
-  struct Node {
-    int elem;
-    bool walls[2];
-    Node * parent;
-
-    Node( int x, Node* p ) : elem( x ), parent( p ) {
-      for( int i = 0; i < 2; ++i ) walls[i] = true;
-    }
-  };
-public:
-  DisjointSet();
-  DisjointSet( int height, int width );
+  explicit DisjointSet( int size );
   virtual ~DisjointSet();
-  void print( std::ostream& os );
+  void Union( int rootA, int rootB );
+  int Find( int value );
+  int NumberOfSets() const;
+
+  void print();
 private:
-  int height_;
-  int width_;
-  std::vector<Node*> set_;
+  std::vector<int> set_;
 };
 
 #endif
